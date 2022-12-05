@@ -1,0 +1,23 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>NodeJS WebSocket Server</title>
+</head>
+<body>
+	<h1 id="test">Hello world</h1>
+<script>
+const ws = new WebSocket("ws://localhost:5000");
+ws.addEventListener("open", () =>{
+  console.log("We are connected");
+  ws.send("How are you?");
+});
+ 
+ws.addEventListener('message', function (event) {
+    console.log(event.data);
+    document.getElementById("test").innerHTML = event.data;
+});
+</script>
+</body>
+</html>
